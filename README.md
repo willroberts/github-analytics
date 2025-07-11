@@ -2,7 +2,8 @@
 
 Playing around with data produced by the Github CLI.
 
-Functionality:
+## Functionality
+
 ```python
 # Count occurrences of programming languages in my repositories, showing the top `count` results.
 count_languages(data: list, count: int)
