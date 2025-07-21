@@ -69,7 +69,7 @@ def find_language_usage(repos: list[Repository], target_lang: str, exclude_priva
         repos = [r for r in repos if r.visibility != "PRIVATE"]
     if exclude_forks:
         repos = [r for r in repos if not r.is_fork]
-    repos = [r.name for r in repos if r.primary_language == target_lang]
+    repos = [repo.name for repo in repos for lang in repo.languages if lang.name == target_lang]
     print(f'Usage of programming language {target_lang}:')
     for repo in repos:
         print(repo)
