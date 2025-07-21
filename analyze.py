@@ -1,6 +1,33 @@
 #!/usr/bin/env python3
 import json
 from collections import Counter
+from dataclasses import dataclass
+
+@dataclass
+class Language:
+    name: str
+    lines: int
+
+@dataclass
+class Repository:
+    name: str
+    stargazerCount: int
+    diskUsage: int
+    primaryLanguage: str
+    languages: list[Language]
+
+def parse_data() -> list[Repository]:
+    with open('data.json', 'r') as f:
+        data = json.loads(f.read())
+    return [
+        Repository(
+            d['name'],
+            d['stargazerCount'],
+            d['diskUsage'],
+            d['primaryLanguage']['name'] if d['primaryLanguage'] else 'N/A',
+            [Language(l['node']['name'], l['size']) for l in d['languages']],
+        ) for d in data
+    ]
 
 def count_languages(data: list, count: int) -> None:
     occurrences = list()
@@ -48,7 +75,5 @@ def show_most_stars(data: list, count: int) -> None:
         print((repo['name'], repo['stargazerCount']))
 
 if __name__ == '__main__':
-    with open('data.json', 'r') as f:
-        data = json.loads(f.read())
-    count_primary_languages(data, 10)
-    show_largest(data, 10)
+    l = parse_data()
+    print(len(l))
