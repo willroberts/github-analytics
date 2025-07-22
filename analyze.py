@@ -56,8 +56,9 @@ def count_primary_languages(repos: list[Repository], count: int = 10) -> None:
         print(lang)
 
 def count_language_lines(repos: list[Repository], count: int = 10) -> None:
-    langs = [lang for repo in repos for lang in repo.languages]
-    c = Counter({lang.name: lang.lines for lang in langs})
+    c = Counter()
+    for lang in [lang for repo in repos for lang in repo.languages]:
+        c.update({lang.name: lang.lines})
     print('Lines of code by language:')
     for lang, lines in c.most_common(count):
         print((lang, lines))
