@@ -4,9 +4,11 @@ Playing around with data produced by the Github CLI.
 
 ## Functionality
 
+Download repository metadata with the `Makefile`. Saves to `data.json`:
 ```sh
-make download # saves repository metadata in data.json
+make download
 ```
+Interact with repository data via Python:
 ```python
 opts = Options(exclude_private=True, exclude_forks=True)
 repos = parse_repositories(opts)
