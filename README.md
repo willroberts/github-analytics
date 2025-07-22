@@ -4,6 +4,9 @@ Playing around with data produced by the Github CLI.
 
 ## Functionality
 
+```sh
+make download # saves repository metadata in data.json
+```
 ```python
 opts = Options(exclude_private=True, exclude_forks=True)
 repos = parse_repositories(opts)
