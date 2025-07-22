@@ -5,9 +5,10 @@ Playing around with data produced by the Github CLI.
 ## Functionality
 
 ```python
-# Count occurrences of programming languages in my repositories, showing the top `count` results.
-count_languages(data: list, count: int)
-
-# Find usage of the given programming language in my repositories.
-find_usage(data: list, target: str)
+count_languages(repos: list[Repository], exclude_private: bool = False, exclude_forks: bool = False, count: int = 10) -> None
+count_primary_languages(repos: list[Repository], exclude_private: bool = False, exclude_forks: bool = False, count: int = 10) -> None
+count_language_lines(repos: list[Repository], exclude_private: bool = False, exclude_forks: bool = False, count: int = 10) -> None
+find_language_usage(repos: list[Repository], target_lang: str, exclude_private: bool = False, exclude_forks: bool = False) -> None
+show_largest(repos: list[Repository], exclude_private: bool = False, exclude_forks: bool = False, count: int = 10) -> None
+show_most_stars(repos: list[Repository], exclude_private: bool = False, exclude_forks: bool = False, count: int = 10) -> None
 ```
