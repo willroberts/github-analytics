@@ -6,12 +6,12 @@ Playing around with data produced by the Github CLI.
 
 ```python
 opts = Options(exclude_private=True, exclude_forks=True)
-repos = parse_repositories()
+repos = parse_repositories(opts)
 
-count_languages(repos: list[Repository], opts: Options, count: int = 10) -> None
-count_primary_languages(repos: list[Repository], opts: Options, count: int = 10) -> None
-count_language_lines(repos: list[Repository], opts: Options, count: int = 10) -> None
-find_language_usage(repos: list[Repository], target_lang: str, opts: Options) -> None
-show_largest(repos: list[Repository], opts: Options, count: int = 10) -> None
-show_most_stars(repos: list[Repository], opts: Options, count: int = 10) -> None
+count_languages(repos: list[Repository], count: int = 10)
+count_primary_languages(repos: list[Repository], count: int = 10)
+count_language_lines(repos: list[Repository], count: int = 10)
+find_language_usage(repos: list[Repository], target_lang: str)
+show_largest(repos: list[Repository], count: int = 10)
+show_most_stars(repos: list[Repository], count: int = 10)
 ```
