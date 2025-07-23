@@ -1,6 +1,6 @@
 # github-analytics
 
-Playing around with data produced by the Github CLI.
+A parser and analyzer for data produced by the Github CLI.
 
 ## Functionality
 
